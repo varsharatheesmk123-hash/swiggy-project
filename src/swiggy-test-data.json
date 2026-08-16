@@ -1,0 +1,108 @@
+{
+  "users": {
+    "admin": {
+      "name": "System Admin",
+      "email": "admin@test.com",
+      "password": "123456",
+      "role": "admin"
+    },
+    "normalUsers": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@test.com",
+        "password": "123456",
+        "role": "user"
+      },
+      {
+        "id": 2,
+        "name": "tannu rathi",
+        "email": "tannu@test.com",
+        "password": "123456",
+        "role": "user"
+      }
+    ],
+    "restaurantOwners": [
+      {
+        "id": 101,
+        "name": "Amit Restaurant",
+        "email": "amit@pizza.com",
+        "password": "123456",
+        "role": "restaurant"
+      }
+    ]
+  },
+  "restaurants": [
+    {
+      "id": 1,
+      "ownerId": 101,
+      "name": "Amit's Pizza",
+      "city": "New Delhi",
+      "address": "123 Main Street",
+      "cuisine": ["Italian", "Fast Food"],
+      "rating": 4.5,
+      "avgDeliveryTime": 30,
+      "isVeg": false,
+      "location": {
+        "type": "Point",
+        "coordinates": [77.2090, 28.6139]
+      },
+      "image": "https://example.com/images/amit_pizza.jpg"
+    },
+    {
+      "id": 2,
+      "ownerId": 101,
+      "name": "Ravi Dhaba",
+      "city": "New Delhi",
+      "address": "456 Connaught Place",
+      "cuisine": ["Indian", "North Indian"],
+      "rating": 4.2,
+      "avgDeliveryTime": 25,
+      "isVeg": true,
+      "location": {
+        "type": "Point",
+        "coordinates": [77.2180, 28.6289]
+      },
+      "image": "https://example.com/images/ravi_dhaba.jpg"
+    }
+  ],
+  "deliveryPartners": [
+    {
+      "partnerId": 501,
+      "name": "Rahul Kumar",
+      "status": "AVAILABLE",
+      "currentLocation": {
+        "type": "Point",
+        "coordinates": [77.2100, 28.6150]
+      }
+    }
+  ],
+  "surgeSettings": {
+    "peakHours": {
+      "start": "12:00",
+      "end": "15:00"
+    },
+    "surgeMultiplier": 1.5,
+    "baseFee": 40
+  },
+  "carttesting": [
+    {
+      "userId": 1,
+      "restaurantId": 1,
+      "items": [
+        {
+          "menuItemId": 10,
+          "name": "Farmhouse Pizza",
+          "price": 299,
+          "quantity": 2
+        },
+        {
+          "menuItemId": 11,
+          "name": "Garlic Bread",
+          "price": 129,
+          "quantity": 1
+        }
+      ]
+    }
+  ]
+}
