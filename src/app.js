@@ -3,7 +3,7 @@ const cors = require('cors');
 const authRoutes = require('./routes/authroutes');
 const restaurantRoutes = require('./routes/restaurantroutes');
 const app = express();
-
+const connectDB = require('./db');
 
 
 app.use(cors());
