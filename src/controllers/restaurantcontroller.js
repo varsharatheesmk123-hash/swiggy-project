@@ -1,5 +1,5 @@
 const Restaurant = require('../models/restaurant');
-const User = require('../models/User');
+const User = require('../models/user');
 
 exports.getRecommendations = async (req, res) => {
     try {
