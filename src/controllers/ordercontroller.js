@@ -1,7 +1,7 @@
 const Order = require('../models/order.js'); 
 const Cart = require('../models/cart.js');
 const Restaurant = require('../models/restaurant.js');
-const FraudLog = require('../models/FraudLog');
+const FraudLog = require('../models/Fraudlog.js');
 const User = require('../models/user.js');
 const SurgeSettings = require('../models/surgeSetting.js'); 
 const { evaluateOrderRisk } = require('../utils/fraudDetector');
