@@ -1,8 +1,9 @@
 const Restaurant = require('../models/restaurant');
 const User = require('../models/user');
-
+const connectDB = require('../db');
 exports.getRecommendations = async (req, res) => {
     try {
+        await connectDB();
         const { userId } = req.params;
 
         
@@ -60,6 +61,7 @@ exports.getRecommendations = async (req, res) => {
 
 exports.searchRestaurants = async (req, res) => {
     try {
+        await connectDB();
         const { search, cuisine, rating, maxDeliveryTime, isVeg, sort, page = 1, limit = 10 } = req.query;
         
         
@@ -133,7 +135,7 @@ exports.searchRestaurants = async (req, res) => {
 
 exports.adminCreateRestaurant = async (req, res) => {
     try {
-        
+        await connectDB();
         if (req.user.role !== 'admin') {
             return res.status(403).json({
                 success: false,
@@ -163,6 +165,7 @@ exports.adminCreateRestaurant = async (req, res) => {
 
 exports.adminUpdateRestaurant = async (req, res) => {
     try {
+        await connectDB();
         if (req.user.role !== 'admin') {
             return res.status(403).json({
                 success: false,
@@ -199,6 +202,7 @@ exports.adminUpdateRestaurant = async (req, res) => {
 
 exports.createRestaurant = async (req, res) => {
     try {
+        await connectDB();
         console.log("LOGGED IN USER:", req.user);
         if (req.user.role !== 'restaurant') {
             return res.status(403).json({
@@ -238,6 +242,7 @@ exports.createRestaurant = async (req, res) => {
 
 exports.getMyRestaurants = async (req, res) => {
     try {
+        await connectDB();
         const restaurants = await Restaurant.findOne({ owner: req.user._id });
         if (!restaurants) {
             return res.status(404).json({ 
@@ -261,6 +266,7 @@ exports.getMyRestaurants = async (req, res) => {
 
 exports.updateRestaurant = async (req, res) => {
     try {
+        await connectDB();
         const restaurant = await Restaurant.findOne({ owner: req.user._id });
         if (!restaurant) {
             return res.status(404).json({
@@ -299,6 +305,7 @@ exports.updateRestaurant = async (req, res) => {
 
 exports.getAllRestaurants = async (req, res) => {
     try {
+        await connectDB();
         let { city, page = 1, limit = 10 } = req.query;
         const query = {};
         if (city) {
@@ -325,6 +332,7 @@ exports.getAllRestaurants = async (req, res) => {
 
 exports.getRestaurantById = async (req, res) => {
     try {
+        await connectDB();
         const { id } = req.params;
         const restaurant = await Restaurant.findById(id);
 
