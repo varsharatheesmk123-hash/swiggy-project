@@ -1,14 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const restaurantController = require('../controllers/restaurantcontroller');
+const restaurantController = require('../controllers/restaurantcontroller.js');
 
 
 const { protect } = require('../middleware/authMiddleware');
-const { getRecommendations } = require('../controllers/restaurantController');
-const { getAllRestaurants, getRestaurantById } = require('../controllers/restaurantController');
 
 
-router.get('/recommendations/:userId', getRecommendations);
+router.get('/recommendations/:userId', restaurantController.getRecommendations);
 router.get('/search', restaurantController.searchRestaurants);
 router.get('/', restaurantController.getAllRestaurants);
 router.get('/:id', restaurantController.getRestaurantById);
