@@ -2,7 +2,7 @@ const Order = require('../models/order.js');
 const User = require('../models/user.js');
 const Restaurant = require('../models/restaurant.js');
 const SurgeSettings = require('../models/surgeSetting.js');
-const FraudLog = require('../models/FraudLog'); 
+const FraudLog = require('../models/Fraudlog'); 
 
 
 exports.updateSurgeSettings = async (req, res) => {
