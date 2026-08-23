@@ -8,6 +8,14 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(async (req, res, next) => {
+    try{
+        await connectDB();
+        next();
+    } catch (error) {
+        res.status(500).json({success: false, message: "Database Connection Error", error: error.message });
+    }
+});
 app.use("/api/auth", authRoutes);
 app.use("/api/restaurants", restaurantRoutes);
 app.use("/api/menu", require('./routes/menuRoutes'));
